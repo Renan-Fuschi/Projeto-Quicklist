@@ -79,6 +79,7 @@ main {
   padding: 12px 24px;
   max-width: 160px;
   width: fit-content;
+  cursor: pointer;
 }
 
 .quicklist-wrapper .quicklist-items-list {
@@ -86,8 +87,39 @@ main {
   flex-direction: column;
   gap: 12px;
   list-style: none;
+  padding-left: 0;
+  min-height: 232px;
+  height: 100%;
+}
+
+.quicklist-wrapper .quicklist-items-list li {
+  background-color: red;
+  min-width: 627px;
+  padding: 8px 12px;
+  border-radius: 12px;
+  background-color: var(--always-white);
+  height: 49px;
+}
+
+.quicklist-wrapper .quicklist-items-list li button {
+  display: none;
 }
 
 .quicklist-wrapper .quicklist-items-list .quicklist-item {
   display: flex;
+  flex-direction: row;
+  gap: 12px;
+  align-items: center;
+  position: relative;
+}
+
+.quicklist-wrapper .quicklist-items-list .quicklist-item button {
+  display: inline-block;
+  right: 16px;
+  background: url("/icons/thrash-icon.png") no-repeat center;
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  border: none;
+  margin-left: auto;
 }
