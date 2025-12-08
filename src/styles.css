@@ -1,125 +1,127 @@
-/*Variáveis*/
-
 :root {
-    --color-brand: #CA3884;
-    --color-brand-hover: #A52C6B;
-    --color-danger: #C93847;
-    --content-primary: #080B12;
-    --content-secondary: #374151;
-    --content-tertiary: #9CA3AF;
-    --always-white: #FFFFFF;
-    --border-primary: #D1D5DB;
-    --border-hover: #B9C2D0;
-    --background-primary: #F4F5FB;
+  --color-brand: #CA3884;
+  --color-brand-hover: #A52C6B;
+  --color-danger: #C93847;
+  --content-primary: #080B12;
+  --content-secondary: #374151;
+  --content-tertiary: #9CA3AF;
+  --always-white: #FFFFFF;
+  --border-primary: #D1D5DB;
+  --border-hover: #B9C2D0;
+  --background-primary: #F4F5FB;
 }
 
 body {
-    background-color: var(--background-primary);
+  background-color: var(--background-primary);
+  font-family: 'Inter', sans-serif;
 }
 
 main {
-    display: flex;
-    flex-direction: column;
-    gap: 62px;
-    justify-content: center;
-    align-items: center;
-    max-width: 627px;
-    width: 100%;
-    margin: 0 auto;
-    font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 62px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 627px;
+  margin: 0 auto;
 }
 
 .quicklist-wrapper {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  justify-content: center;
   align-items: flex-start;
-  text-align: left;
+  width: 100%;
 }
 
-.quicklist-wrapper .back-button {
-  width: fit-content;
-  background-color: transparent;
-  border: none;
-  color: var(--color-brand);
-  font-size: 14px;
-  line-height: 16px;
-  font-weight: 500;
-}
-
-.quicklist-wrapper .quicklist-title {
+.quicklist-title {
   color: var(--content-primary);
   font-size: 24px;
   line-height: 32px;
   font-weight: bold;
 }
 
-.quicklist-wrapper .quicklist-add-items {
+
+.quicklist-add-items {
   display: flex;
   gap: 16px;
+  width: 100%;
 }
 
-.quicklist-wrapper .quicklist-add-items input {
+.quicklist-add-items input {
+  flex: 1;
   border: 1px solid var(--border-primary);
-  width: 451px;
   border-radius: 12px;
   padding: 18px;
   box-sizing: border-box;
 }
 
-.quicklist-wrapper .quicklist-add-items .add-item-button {
+.add-item-button {
   background-color: var(--color-brand);
-  border: none;
   color: var(--always-white);
   font-size: 16px;
-  line-height: 20px;
   font-weight: bold;
   border-radius: 12px;
   padding: 12px 24px;
-  max-width: 160px;
-  width: fit-content;
+  border: none;
   cursor: pointer;
+  white-space: nowrap;
 }
 
-.quicklist-wrapper .quicklist-items-list {
+
+.quicklist-items-list {
   display: flex;
   flex-direction: column;
   gap: 12px;
   list-style: none;
   padding-left: 0;
-  min-height: 232px;
-  height: 100%;
+  width: 100%;
 }
 
-.quicklist-wrapper .quicklist-items-list li {
-  background-color: red;
-  min-width: 627px;
-  padding: 8px 12px;
-  border-radius: 12px;
+.quicklist-items-list li {
   background-color: var(--always-white);
-  height: 49px;
-}
-
-.quicklist-wrapper .quicklist-items-list li button {
-  display: none;
-}
-
-.quicklist-wrapper .quicklist-items-list .quicklist-item {
+  border-radius: 12px;
+  padding: 0 12px;
+  min-height: 49px;
+  width: 100%;
   display: flex;
-  flex-direction: row;
-  gap: 12px;
   align-items: center;
-  position: relative;
+  box-sizing: border-box;
 }
 
-.quicklist-wrapper .quicklist-items-list .quicklist-item button {
-  display: inline-block;
-  right: 16px;
+
+.quicklist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+}
+
+.quicklist-item button {
+  margin-left: auto;
   background: url("/icons/thrash-icon.png") no-repeat center;
   width: 16px;
   height: 16px;
   cursor: pointer;
   border: none;
-  margin-left: auto;
+  flex-shrink: 0;  
+}
+
+/* Responsividade */
+@media (max-width: 767px) {
+
+  .quicklist-wrapper {
+    max-width: 375px;
+    width: 100%;
+  }
+
+  .quicklist-add-items {
+    flex-direction: column;
+  }
+
+  .add-item-button {
+    width: 100%;
+    text-align: center;
+  }
 }
