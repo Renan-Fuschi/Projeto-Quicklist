@@ -1,7 +1,7 @@
 const addItem = document.querySelector(".add-item-button");
-const newItem = document.querySelector("#description");
+const newItem = document.querySelector(".quicklist-add-items input");
 const list = document.querySelector(".quicklist-items-list");
-const removeItem = document.getElementById("remove-item");
+const removeItem = document.querySelector(".remove-item");
 
 // Salvar itens no localStorage
 function saveItems() {
@@ -44,8 +44,10 @@ addItem.addEventListener("click", (event) => {
     saveItems(); // salvar após adicionar
 });
 
-removeItem.addEventListener("click", () => {
-    const lastItem = list.lastElementChild;
-    list.removeChild(lastItem);
-    localStorage.clear();
+list.addEventListener("click", (event) => {
+    if (event.target.classList.contains("remove-item")) {
+        const item = event.target.closest(".quicklist-item");
+        item.remove();
+        saveItems(); // salvar após remover
+    }
 });
